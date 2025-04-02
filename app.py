@@ -24,6 +24,10 @@ async def failure_simulation_middleware(request: Request, call_next):
     response = await call_next(request)
     return response
 
+@app.get("")
+async def root():
+    return {"message": "Welcome to the API!"}
+
 @app.get("/status")
 async def status():
     # Return current endpoints depending on whether DR is active
